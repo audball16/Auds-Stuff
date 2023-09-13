@@ -1,0 +1,86 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class SubtractionTutor
+{
+   public static void main(String[] args)
+   {
+      
+      Scanner s;
+      s = new Scanner(System.in);
+      
+     
+      int lowEnd;
+      int highEnd;     
+     
+     
+     
+      System.out.print("You will supply a low value and high value, defining the range \n"
+                       + "of values to be included in your quiz. The values must be positive \n"
+                       + "and no larger than 9999 I will give you 5 problems. \n");
+                       
+      System.out.print("Low end of range : ");
+      lowEnd = s.nextInt();
+      System.out.print("High end of range : ");
+      highEnd = s.nextInt();   
+      
+      int numCor = 0;
+      
+      for (int c = 0; c<= 4; c++)
+      {
+      Random rand = new Random();
+      int numOne= rand.nextInt(lowEnd, highEnd + 1);
+      int numTwo= rand.nextInt(lowEnd, highEnd + 1);
+      int answer;
+      
+      
+      
+      
+      if (numOne > numTwo)
+      {
+            System.out.print("\n  "+ numOne + "\n-" + " " + numTwo + "\n ----");
+            System.out.print("\nAnswer? ");
+            answer = s.nextInt();
+            if (answer == (numOne - numTwo))
+            {
+               System.out.print("Correct!\n");
+               numCor++;   
+            }        
+            else
+               System.out.print("Incorrect! The answer is " + (numOne - numTwo) + "\n");
+
+
+      }
+         
+      else 
+      {
+            System.out.print("\n  " + numTwo + "\n-" + " " +numOne + "\n ----");
+            System.out.print("\nAnswer? ");
+            answer = s.nextInt();
+            if (answer == (numTwo - numOne))
+            {
+               System.out.print("Correct!\n");
+               numCor++;  
+            }
+            else
+               System.out.print("Incorrect! The answer is " + (numTwo - numOne) + "\n");
+
+      }
+      }
+      
+      System.out.print("The quiz is over.\n");
+      
+      if (numCor == 5)
+         System.out.print("Excellent! You got all 5 problems correct.");
+      else if (numCor > 2)
+         System.out.print("You got over half correct, you need to spend more time practicing.");
+      else
+         System.out.print("You got less than half correct, you need to spend more time practicing.");
+
+      
+      
+      
+    }
+ }
+
+      
